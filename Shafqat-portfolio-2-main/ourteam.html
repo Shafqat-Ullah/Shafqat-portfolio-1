@@ -1,0 +1,182 @@
+Team Section
+<section id="team" class="py-20 bg-darker">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Team</span></h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            <p class="text-slate-400 max-w-2xl mx-auto mt-4">
+                Meet the talented professionals who work together to deliver exceptional results.
+            </p>
+        </div>
+        
+        <!-- Team Slider -->
+        <div class="relative max-w-4xl mx-auto">
+            <!-- Slider Container -->
+            <div id="team-slider" class="overflow-hidden">
+                <div id="team-track" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Team Member 1 -->
+                    <div class="team-slide min-w-full md:min-w-1/2 lg:min-w-1/3 px-4">
+                        <div class="bg-slate-800 rounded-xl p-6 h-full project-card text-center">
+                            <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-slate-700">
+                                <img src="./Images/shafqat.png" alt="Team Member" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Shafqat Ullah</h3>
+                            <p class="text-primary font-medium mb-4">MERN Stack Developer</p>
+                            <p class="text-slate-400 mb-6">
+                                Full-stack developer specializing in React, Node.js, and MongoDB. 
+                                Passionate about creating scalable web applications.
+                            </p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-primary">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-blue-600">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-blue-400">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 2 -->
+                    <div class="team-slide min-w-full md:min-w-1/2 lg:min-w-1/3 px-4">
+                        <div class="bg-slate-800 rounded-xl p-6 h-full project-card text-center">
+                            <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-slate-700">
+                                <img src="./Images/team2.jpg" alt="Team Member" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Alex Johnson</h3>
+                            <p class="text-primary font-medium mb-4">UI/UX Designer</p>
+                            <p class="text-slate-400 mb-6">
+                                Creative designer with 5+ years of experience in user interface 
+                                and experience design for web and mobile applications.
+                            </p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-primary">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-blue-600">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-blue-400">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 3 -->
+                    <div class="team-slide min-w-full md:min-w-1/2 lg:min-w-1/3 px-4">
+                        <div class="bg-slate-800 rounded-xl p-6 h-full project-card text-center">
+                            <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-slate-700">
+                                <img src="./Images/team3.jpg" alt="Team Member" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Sarah Williams</h3>
+                            <p class="text-primary font-medium mb-4">Project Manager</p>
+                            <p class="text-slate-400 mb-6">
+                                Experienced project manager with expertise in agile methodologies 
+                                and delivering projects on time and within budget.
+                            </p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-primary">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-blue-600">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-slate-700 hover:bg-blue-400">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <button id="prev-team" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-primary w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg z-10">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next-team" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-primary w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg z-10">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Dots Indicator -->
+            <div class="flex justify-center mt-8 space-x-2">
+                <button class="team-dot w-3 h-3 rounded-full bg-slate-700 focus:outline-none"></button>
+                <button class="team-dot w-3 h-3 rounded-full bg-slate-700 focus:outline-none"></button>
+                <button class="team-dot w-3 h-3 rounded-full bg-slate-700 focus:outline-none"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    // Team Slider Functionality
+const teamSlider = document.getElementById('team-slider');
+const teamTrack = document.getElementById('team-track');
+const teamSlides = document.querySelectorAll('.team-slide');
+const prevTeamButton = document.getElementById('prev-team');
+const nextTeamButton = document.getElementById('next-team');
+const teamDots = document.querySelectorAll('.team-dot');
+
+let currentTeamSlide = 0;
+const totalTeamSlides = teamSlides.length;
+
+// Function to update team slider position
+function updateTeamSlider() {
+    const slideWidth = teamSlides[0].offsetWidth;
+    teamTrack.style.transform = `translateX(-${currentTeamSlide * slideWidth}px)`;
+    
+    // Update active dot
+    teamDots.forEach((dot, index) => {
+        if (index === currentTeamSlide) {
+            dot.classList.add('bg-primary');
+        } else {
+            dot.classList.remove('bg-primary');
+        }
+    });
+}
+
+// Next slide
+nextTeamButton.addEventListener('click', () => {
+    currentTeamSlide = (currentTeamSlide + 1) % totalTeamSlides;
+    updateTeamSlider();
+});
+
+// Previous slide
+prevTeamButton.addEventListener('click', () => {
+    currentTeamSlide = (currentTeamSlide - 1 + totalTeamSlides) % totalTeamSlides;
+    updateTeamSlider();
+});
+
+// Dot navigation
+teamDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentTeamSlide = index;
+        updateTeamSlider();
+    });
+});
+
+// Auto slide every 6 seconds
+setInterval(() => {
+    currentTeamSlide = (currentTeamSlide + 1) % totalTeamSlides;
+    updateTeamSlider();
+}, 6000);
+
+// Initialize team slider
+updateTeamSlider();
+</script>
+
+<style>
+    /* Team Slider Styles */
+.team-slide {
+    transition: all 0.3s ease;
+}
+
+.team-slide:hover {
+    transform: translateY(-5px);
+}
+</style>
