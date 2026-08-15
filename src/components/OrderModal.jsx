@@ -84,13 +84,13 @@ ${formData.description}
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/85 backdrop-blur-md animate-fade-in">
-      <div className={`relative w-full max-w-xl rounded-3xl border overflow-hidden shadow-2xl transition-all duration-300 ${
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-3 sm:p-5 bg-slate-950/85 backdrop-blur-md animate-fade-in">
+      <div className={`relative w-full max-w-xl my-auto max-h-[92vh] flex flex-col rounded-3xl border overflow-hidden shadow-2xl transition-all duration-300 ${
         isDark ? 'bg-slate-900 border-slate-700/80 text-slate-100' : 'bg-white border-slate-200 text-slate-900'
       }`}>
         
         {/* Header */}
-        <div className="p-6 sm:p-7 bg-gradient-to-r from-primary via-secondary to-accent text-white relative shadow-lg">
+        <div className="p-5 sm:p-7 shrink-0 bg-gradient-to-r from-primary via-secondary to-accent text-white relative shadow-lg">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-950/30 text-white flex items-center justify-center hover:bg-slate-950/60 transition-all border border-white/20"
@@ -99,12 +99,12 @@ ${formData.description}
             <X className="w-5 h-5" />
           </button>
           
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2.5 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-inner">
+          <div className="flex items-center gap-3 mb-2 pr-8">
+            <div className="p-2.5 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-inner shrink-0">
               <ShoppingBag className="w-6 h-6" />
             </div>
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight">Place Your Project Order</h3>
+            <div className="min-w-0">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight leading-tight">Place Your Project Order</h3>
               <span className="px-2.5 py-0.5 rounded-full bg-emerald-400/20 border border-emerald-400/40 text-emerald-300 font-extrabold text-[10px] uppercase tracking-wider inline-flex items-center gap-1 mt-1">
                 <Sparkles className="w-3 h-3" /> Direct Developer Booking
               </span>
@@ -117,7 +117,7 @@ ${formData.description}
 
         {/* Form Body */}
         {submitted ? (
-          <div className="p-8 text-center">
+          <div className="p-6 sm:p-8 text-center overflow-y-auto">
             <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-4 border border-emerald-500/40 animate-pulse">
               <CheckCircle2 className="w-10 h-10" />
             </div>
@@ -141,7 +141,7 @@ ${formData.description}
             </div>
           </div>
         ) : (
-          <form onSubmit={handleWhatsAppSubmit} className="p-5 sm:p-7 space-y-4 sm:space-y-5 max-h-[78vh] overflow-y-auto">
+          <form onSubmit={handleWhatsAppSubmit} className="p-5 sm:p-7 space-y-4 sm:space-y-5 overflow-y-auto flex-1 min-h-0">
             
             {/* Name & Contact */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
