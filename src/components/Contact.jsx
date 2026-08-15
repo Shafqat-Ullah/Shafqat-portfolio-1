@@ -230,19 +230,19 @@ const Contact = ({ onOpenOrderModal }) => {
 
         {/* Quick Enquiry Form */}
         <Reveal>
-        <div className={`mt-12 p-8 sm:p-10 rounded-3xl border shadow-2xl relative overflow-hidden ${
+        <div className={`mt-12 p-5 sm:p-8 lg:p-10 rounded-3xl border shadow-2xl relative overflow-hidden ${
           isDark ? 'bg-slate-900/90 border-slate-800' : 'bg-white border-slate-200'
         }`}>
           <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-tr from-secondary/30 to-transparent rounded-br-full pointer-events-none"></div>
 
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-3 rounded-2xl bg-gradient-to-r from-secondary to-primary text-white shadow-lg">
+          <div className="flex flex-col items-center sm:flex-row sm:items-center gap-3 mb-2 text-center sm:text-left">
+            <div className="p-3 rounded-2xl bg-gradient-to-r from-secondary to-primary text-white shadow-lg shrink-0">
               <ClipboardList className="w-7 h-7" />
             </div>
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold gradient-text">Quick Project Enquiry</h3>
-              <p className="text-xs text-emerald-400 font-bold flex items-center gap-1">
-                <Send className="w-3.5 h-3.5" /> Submits directly to WhatsApp — no waiting!
+            <div className="flex flex-col items-center sm:items-start">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold gradient-text">Quick Project Enquiry</h3>
+              <p className="text-xs text-emerald-400 font-bold flex items-center gap-1 mt-0.5">
+                <Send className="w-3.5 h-3.5 shrink-0" /> Submits directly to WhatsApp — no waiting!
               </p>
             </div>
           </div>
@@ -344,13 +344,12 @@ const Contact = ({ onOpenOrderModal }) => {
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="w-full py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-base shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/50 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2.5 group"
+                className="w-full py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-sm sm:text-base shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/50 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2.5 whitespace-nowrap group"
               >
-                <span className="w-6 h-6 rounded-full bg-slate-950/10 flex items-center justify-center shrink-0">
-                  <WhatsAppIcon className="w-4 h-4 text-slate-950" />
+                <span className="w-7 h-7 rounded-full bg-white/25 flex items-center justify-center shrink-0">
+                  <WhatsAppIcon className="w-5 h-5 text-slate-950" />
                 </span>
                 <span>Send Enquiry via WhatsApp</span>
-                <Send className="w-4 h-4 opacity-80 group-hover:translate-x-1 transition-transform" />
               </button>
               <p className={`text-center text-xs mt-3 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
                 Your details go directly to Shafqat's WhatsApp — no forms database, maximum privacy.
