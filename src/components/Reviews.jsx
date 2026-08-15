@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck, Check, X, CheckCircle2 } from 'lucide-react';
+import { getImagePath } from '../utils/imageUtils';
 
 const defaultReviews = [
   {
@@ -181,8 +182,12 @@ const Reviews = () => {
                 {/* Client Photo */}
                 <div className="w-20 h-20 rounded-full p-1 bg-gradient-to-tr from-primary to-secondary shrink-0 shadow-lg">
                   <img
-                    src={activeReview.image}
+                    src={getImagePath(activeReview.image)}
                     alt={activeReview.name}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';
+                    }}
                     className="w-full h-full object-cover rounded-full border-2 border-slate-900"
                   />
                 </div>

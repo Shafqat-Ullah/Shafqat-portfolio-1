@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import WhatsAppIcon from './WhatsAppIcon';
+import { getImagePath } from '../utils/imageUtils';
 import { 
   ArrowRight, 
   Download, 
@@ -158,8 +159,12 @@ const Hero = ({ onOpenOrderModal }) => {
               {/* Inner Avatar Image */}
               <div className="relative w-full h-full rounded-full p-2 overflow-hidden bg-night-bg/50 backdrop-blur-md">
                 <img
-                  src="./Images/Shafqat_Ullah.png"
+                  src={getImagePath('Images/Shafqat_Ullah.png')}
                   alt="Shafqat Ullah - Senior Full Stack MERN Developer"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';
+                  }}
                   className="w-full h-full object-cover rounded-full shadow-2xl floating transition-transform hover:scale-105 duration-500"
                 />
               </div>

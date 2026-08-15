@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Sparkles } from 'lucide-react';
+import { getImagePath } from '../utils/imageUtils';
 
 const Team = () => {
   const { isDark } = useTheme();
@@ -92,8 +93,12 @@ const Team = () => {
               <div className="relative shrink-0">
                 <div className="w-44 h-44 sm:w-56 sm:h-56 rounded-full p-1.5 bg-gradient-to-tr from-primary via-secondary to-accent shadow-2xl">
                   <img
-                    src={activeMember.image}
+                    src={getImagePath(activeMember.image)}
                     alt={activeMember.name}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';
+                    }}
                     className="w-full h-full object-cover rounded-full border-4 border-slate-950 shadow-inner"
                   />
                 </div>

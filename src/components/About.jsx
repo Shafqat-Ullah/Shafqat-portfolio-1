@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { Briefcase, Calendar, MapPin, Mail, Phone, User, Award, CheckCircle } from 'lucide-react';
+import { Award, Code2, Rocket, HeartHandshake, CheckCircle, Terminal, Coffee, Sparkles, Briefcase, Calendar, MapPin, Mail, Phone, User } from 'lucide-react';
+import { getImagePath } from '../utils/imageUtils';
 
 const About = ({ onOpenOrderModal }) => {
   const { isDark } = useTheme();
@@ -54,8 +55,12 @@ const About = ({ onOpenOrderModal }) => {
             <div className="relative w-full max-w-md aspect-square">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary to-secondary blur-2xl opacity-30"></div>
               <img
-                src="./Images/shafqat-developer-desk.jpg"
+                src={getImagePath('Images/shafqat-developer-desk.jpg')}
                 alt="Shafqat Ullah - Senior Full Stack MERN Developer"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80';
+                }}
                 className="relative w-full h-full object-cover rounded-3xl border-4 border-slate-800/80 shadow-2xl card-hover"
               />
             </div>

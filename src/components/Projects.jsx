@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { ExternalLink, Github, Eye, Sparkles, ShoppingBag, ChevronDown, ChevronUp, Monitor, Image as ImageIcon } from 'lucide-react';
+import { getImagePath } from '../utils/imageUtils';
 
 const Projects = ({ onOpenOrderModal }) => {
   const { isDark } = useTheme();
@@ -837,8 +838,12 @@ const Projects = ({ onOpenOrderModal }) => {
                 {/* Project Image */}
                 <div className="relative h-56 overflow-hidden bg-slate-950">
                   <img
-                    src={project.image}
+                    src={getImagePath(project.image)}
                     alt={project.title}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80';
+                    }}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
@@ -994,8 +999,12 @@ const Projects = ({ onOpenOrderModal }) => {
                 <div>
                   <div className="h-64 sm:h-80 overflow-hidden relative">
                     <img
-                      src={selectedProject.image}
+                      src={getImagePath(selectedProject.image)}
                       alt={selectedProject.title}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80';
+                      }}
                       className="w-full h-full object-cover object-top"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
