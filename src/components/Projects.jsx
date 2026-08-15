@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { ExternalLink, Github, Eye, Sparkles, ShoppingBag, ChevronDown, ChevronUp, Monitor, Image as ImageIcon, X } from 'lucide-react';
+import { ExternalLink, Github, Eye, Sparkles, ShoppingBag, ChevronDown, ChevronUp, Monitor, Image as ImageIcon, X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { getImagePath } from '../utils/imageUtils';
 import Reveal from './Reveal';
 
@@ -10,6 +10,7 @@ const Projects = ({ onOpenOrderModal }) => {
   const [visibleCount, setVisibleCount] = useState(3);
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeModalTab, setActiveModalTab] = useState('overview'); // 'overview' | 'live'
+  const [lightboxIndex, setLightboxIndex] = useState(null); // index into displayedProjects, null = closed
 
   const projects = [
     // ---------------- 12 E-COMMERCE STORES (12-eCommerce-Website repo) ----------------
@@ -764,13 +765,21 @@ const Projects = ({ onOpenOrderModal }) => {
   };
 
   useEffect(() => {
-    if (!selectedProject) return;
     const handleKey = (e) => {
-      if (e.key === 'Escape') setSelectedProject(null);
+      if (e.key === 'Escape') {
+        setSelectedProject(null);
+        setLightboxIndex(null);
+      }
+      if (lightboxIndex !== null && e.key === 'ArrowLeft') {
+        setLightboxIndex((i) => (i > 0 ? i - 1 : displayedProjects.length - 1));
+      }
+      if (lightboxIndex !== null && e.key === 'ArrowRight') {
+        setLightboxIndex((i) => (i < displayedProjects.length - 1 ? i + 1 : 0));
+      }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [selectedProject]);
+  }, [selectedProject, lightboxIndex, displayedProjects.length]);
 
   const ecommerceCount = projects.filter(p => p.category === 'ecommerce').length;
   const restaurantCount = projects.filter(p => p.category === 'restaurant').length;
@@ -838,7 +847,7 @@ const Projects = ({ onOpenOrderModal }) => {
         {/* Projects Grid */}
         <Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayedProjects.map((project) => (
+          {displayedProjects.map((project, projectIndex) => (
             <div
               key={project.id}
               className={`group rounded-3xl overflow-hidden border card-hover flex flex-col justify-between transition-all duration-300 ${
@@ -850,16 +859,27 @@ const Projects = ({ onOpenOrderModal }) => {
               <div>
                 {/* Project Image */}
                 <div className="relative h-56 overflow-hidden bg-slate-950">
-                  <img
-                    src={getImagePath(project.image)}
-                    alt={project.title}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80';
-                    }}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                  <button
+                    type="button"
+                    onClick={() => setLightboxIndex(projectIndex)}
+                    className="block w-full h-full cursor-zoom-in"
+                    aria-label={`Enlarge image of ${project.title}`}
+                  >
+                    <img
+                      src={getImagePath(project.image)}
+                      alt={project.title}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80';
+                      }}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </button>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none"></div>
+
+                  <span className="absolute top-3 right-3 px-2.5 py-1.5 rounded-full bg-slate-950/60 text-white text-[10px] font-bold flex items-center gap-1 backdrop-blur-md border border-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <ZoomIn className="w-3.5 h-3.5" /> Zoom
+                  </span>
                   
                   {/* Overlay Quick Preview Button */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -1077,6 +1097,53 @@ const Projects = ({ onOpenOrderModal }) => {
               </button>
             </div>
 
+          </div>
+        </div>
+      )}
+
+      {/* Fullscreen Image Lightbox */}
+      {lightboxIndex !== null && displayedProjects[lightboxIndex] && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/95 backdrop-blur-md animate-fade-in"
+          onClick={(e) => { if (e.target === e.currentTarget) setLightboxIndex(null); }}
+        >
+          <button
+            onClick={() => setLightboxIndex(null)}
+            aria-label="Close image preview"
+            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 text-white hover:bg-white/20 border border-white/20 flex items-center justify-center active:scale-95 transition"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <button
+            onClick={() => setLightboxIndex((i) => (i > 0 ? i - 1 : displayedProjects.length - 1))}
+            aria-label="Previous image"
+            className="absolute left-2 sm:left-4 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 text-white hover:bg-white/20 border border-white/20 flex items-center justify-center active:scale-95 transition"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+
+          <button
+            onClick={() => setLightboxIndex((i) => (i < displayedProjects.length - 1 ? i + 1 : 0))}
+            aria-label="Next image"
+            className="absolute right-2 sm:right-4 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 text-white hover:bg-white/20 border border-white/20 flex items-center justify-center active:scale-95 transition"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+
+          <div className="w-full max-w-5xl px-4 sm:px-14">
+            <img
+              src={getImagePath(displayedProjects[lightboxIndex].image)}
+              alt={displayedProjects[lightboxIndex].title}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80';
+              }}
+              className="max-w-full max-h-[82vh] mx-auto rounded-2xl shadow-2xl object-contain"
+            />
+            <p className="text-center text-sm mt-4 font-semibold text-slate-200">
+              {displayedProjects[lightboxIndex].title}
+            </p>
           </div>
         </div>
       )}

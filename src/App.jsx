@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -7,12 +7,14 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Services from './components/Services';
 import Reviews from './components/Reviews';
-import Chatbot from './components/Chatbot';
+import ChatAssistantSection from './components/ChatAssistantSection';
 import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import OrderModal from './components/OrderModal';
 import FloatingOrderBtn from './components/FloatingOrderBtn';
+
+const Chatbot = lazy(() => import('./components/Chatbot'));
+const OrderModal = lazy(() => import('./components/OrderModal'));
 
 function AppContent() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -41,6 +43,7 @@ function AppContent() {
         <Projects onOpenOrderModal={handleOpenOrderModal} />
         <Services onOpenOrderModal={handleOpenOrderModal} />
         <Reviews />
+        <ChatAssistantSection onOpenOrderModal={handleOpenOrderModal} />
         <Team />
         <Contact onOpenOrderModal={handleOpenOrderModal} />
       </main>
@@ -49,14 +52,18 @@ function AppContent() {
       <Footer onOpenOrderModal={handleOpenOrderModal} />
 
       {/* Floating Interactive Help & Support AI Chatbot */}
-      <Chatbot onOpenOrderModal={handleOpenOrderModal} />
+      <Suspense fallback={null}>
+        <Chatbot onOpenOrderModal={handleOpenOrderModal} />
+      </Suspense>
 
       {/* Instant Order Modal */}
-      <OrderModal
-        isOpen={isOrderModalOpen}
-        onClose={handleCloseOrderModal}
-        initialPackage={selectedPackage}
-      />
+      <Suspense fallback={null}>
+        <OrderModal
+          isOpen={isOrderModalOpen}
+          onClose={handleCloseOrderModal}
+          initialPackage={selectedPackage}
+        />
+      </Suspense>
     </div>
   );
 }

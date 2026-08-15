@@ -129,7 +129,7 @@ const ChatAssistantSection = ({ onOpenOrderModal }) => {
   };
 
   return (
-    <section id="assistant" className={`py-24 transition-colors duration-300 hidden md:block ${
+    <section id="assistant" className={`py-24 transition-colors duration-300 ${
       isDark ? 'bg-night-bg border-t border-slate-800/80' : 'bg-white border-t border-slate-200'
     }`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
