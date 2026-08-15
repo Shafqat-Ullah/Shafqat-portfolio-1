@@ -344,10 +344,13 @@ const Contact = ({ onOpenOrderModal }) => {
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="w-full py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-base shadow-xl shadow-emerald-500/25 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2.5 group"
+                className="w-full py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-base shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/50 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2.5 group"
               >
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="w-6 h-6 rounded-full bg-slate-950/10 flex items-center justify-center shrink-0">
+                  <WhatsAppIcon className="w-4 h-4 text-slate-950" />
+                </span>
                 <span>Send Enquiry via WhatsApp</span>
+                <Send className="w-4 h-4 opacity-80 group-hover:translate-x-1 transition-transform" />
               </button>
               <p className={`text-center text-xs mt-3 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
                 Your details go directly to Shafqat's WhatsApp — no forms database, maximum privacy.
