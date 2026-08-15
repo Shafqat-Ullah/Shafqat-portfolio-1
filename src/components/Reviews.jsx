@@ -27,7 +27,7 @@ const defaultReviews = [
     id: 3,
     name: 'Michael Brown',
     role: 'Tech Startup Founder (USA)',
-    image: './Images/Client_3.jpg',
+    image: './Images/pexels-jeffreyreed-769730.jpg',
     rating: 5,
     comment: 'Shafqat transformed our online presence with a stunning website. He was responsive, professional, and delivered on time. The site has significantly increased our customer engagement and conversions.',
     status: 'approved'
