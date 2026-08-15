@@ -764,6 +764,21 @@ const Projects = ({ onOpenOrderModal }) => {
     setActiveModalTab('overview');
   };
 
+  const ecommerceCount = projects.filter(p => p.category === 'ecommerce').length;
+  const restaurantCount = projects.filter(p => p.category === 'restaurant').length;
+  const gymCount = projects.filter(p => p.category === 'gym').length;
+  const sportsCount = projects.filter(p => p.category === 'sports').length;
+  const medicalCount = projects.filter(p => p.category === 'medical').length;
+  const frontendCount = projects.filter(p => p.category === 'frontend').length;
+
+  const filteredProjects = filter === 'all' 
+    ? projects 
+    : filter === 'featured'
+      ? projects.filter(p => p.featured)
+      : projects.filter(p => p.category === filter);
+
+  const displayedProjects = filteredProjects.slice(0, visibleCount);
+
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape') {
@@ -780,21 +795,6 @@ const Projects = ({ onOpenOrderModal }) => {
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [selectedProject, lightboxIndex, displayedProjects.length]);
-
-  const ecommerceCount = projects.filter(p => p.category === 'ecommerce').length;
-  const restaurantCount = projects.filter(p => p.category === 'restaurant').length;
-  const gymCount = projects.filter(p => p.category === 'gym').length;
-  const sportsCount = projects.filter(p => p.category === 'sports').length;
-  const medicalCount = projects.filter(p => p.category === 'medical').length;
-  const frontendCount = projects.filter(p => p.category === 'frontend').length;
-
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : filter === 'featured'
-      ? projects.filter(p => p.featured)
-      : projects.filter(p => p.category === filter);
-
-  const displayedProjects = filteredProjects.slice(0, visibleCount);
 
   return (
     <section id="projects" className={`py-24 transition-colors duration-300 ${
