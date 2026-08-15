@@ -25,7 +25,7 @@ const defaultReviews = [
     id: 3,
     name: 'Michael Brown',
     role: 'Tech Startup Founder (USA)',
-    image: './Images/Client 3.jpg',
+    image: './Images/Client_3.jpg',
     rating: 5,
     comment: 'Shafqat transformed our online presence with a stunning website. He was responsive, professional, and delivered on time. The site has significantly increased our customer engagement and conversions.',
     status: 'approved'
@@ -34,7 +34,7 @@ const defaultReviews = [
     id: 4,
     name: 'Emily Davis',
     role: 'Marketing Director',
-    image: './Images/client 4.jpg',
+    image: './Images/client_4.jpg',
     rating: 5,
     comment: 'Exceptional work! Shafqat created a beautiful, functional website that perfectly represents our brand. His technical expertise and creative approach made the entire process smooth and enjoyable.',
     status: 'approved'
