@@ -172,7 +172,7 @@ const Chatbot = ({ onOpenOrderModal }) => {
       {isOpen && (
         <div className={`fixed bottom-4 right-4 left-4 sm:left-auto sm:right-6 z-50 sm:w-[400px] max-w-[calc(100vw-2rem)] rounded-3xl border shadow-2xl transition-all duration-300 flex flex-col overflow-hidden ${
           isDark ? 'bg-slate-900 border-slate-700 text-slate-100' : 'bg-white border-slate-200 text-slate-900'
-        } ${isMinimized ? 'h-16' : 'h-[500px] sm:h-[530px] max-h-[82vh]'}`}>
+        } ${isMinimized ? 'h-16' : 'h-[calc(100dvh-6rem)] sm:h-[530px] max-h-[82vh]'}`}>
           
           {/* Header */}
           <div className="px-4 sm:px-5 py-3.5 sm:py-4 bg-gradient-to-r from-primary via-secondary to-accent text-white flex items-center justify-between shadow-md shrink-0">
