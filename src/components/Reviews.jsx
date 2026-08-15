@@ -27,7 +27,7 @@ const defaultReviews = [
     id: 3,
     name: 'Michael Brown',
     role: 'Tech Startup Founder (USA)',
-    image: './Images/pexels-jeffreyreed-769730.jpg',
+    image: './Images/client3_new.png',
     rating: 5,
     comment: 'Shafqat transformed our online presence with a stunning website. He was responsive, professional, and delivered on time. The site has significantly increased our customer engagement and conversions.',
     status: 'approved'
@@ -192,7 +192,7 @@ const Reviews = () => {
                       e.target.onerror = null;
                       e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';
                     }}
-                    className="w-full h-full object-cover rounded-full border-2 border-slate-900"
+                    className="w-full h-full object-cover object-center rounded-full border-2 border-slate-900"
                   />
                 </div>
 
