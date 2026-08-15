@@ -997,7 +997,7 @@ const Projects = ({ onOpenOrderModal }) => {
               <button
                 onClick={() => setSelectedProject(null)}
                 aria-label="Close project details"
-                className="w-10 h-10 shrink-0 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center hover:bg-slate-700 active:scale-95 transition border border-slate-700"
+                className="w-10 h-10 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 active:scale-95 transition shadow-lg border border-white/20"
               >
                 <X className="w-5 h-5" />
               </button>
