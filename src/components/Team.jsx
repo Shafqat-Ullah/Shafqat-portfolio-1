@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Users, Sparkles } from 'lucide-react';
 import { getImagePath } from '../utils/imageUtils';
+import Reveal from './Reveal';
 
 const Team = () => {
   const { isDark } = useTheme();
@@ -65,6 +66,7 @@ const Team = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
+        <Reveal>
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-extrabold text-xs uppercase tracking-widest border border-primary/20 mb-4">
             <Users className="w-4 h-4" /> Team Showcase
@@ -77,8 +79,10 @@ const Team = () => {
             Meet the talented engineers & project managers working together to execute your web applications flawlessly.
           </p>
         </div>
+        </Reveal>
 
         {/* Interactive Team Image Slider Carousel */}
+        <Reveal>
         <div className="relative max-w-4xl mx-auto">
           
           {/* Slider Container */}
@@ -199,6 +203,7 @@ const Team = () => {
           </div>
 
         </div>
+        </Reveal>
 
       </div>
     </section>

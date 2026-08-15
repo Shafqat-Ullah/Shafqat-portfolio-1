@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { ExternalLink, Github, Eye, Sparkles, ShoppingBag, ChevronDown, ChevronUp, Monitor, Image as ImageIcon, X } from 'lucide-react';
 import { getImagePath } from '../utils/imageUtils';
+import Reveal from './Reveal';
 
 const Projects = ({ onOpenOrderModal }) => {
   const { isDark } = useTheme();
@@ -793,6 +794,7 @@ const Projects = ({ onOpenOrderModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Dynamic & Engaging Section Title */}
+        <Reveal>
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">
             Featured Projects & <span className="gradient-text">Web Solutions</span>
@@ -802,6 +804,7 @@ const Projects = ({ onOpenOrderModal }) => {
             Explore our diverse showcase of Medical sites, E-Commerce stores, Restaurant systems, Gym platforms, Sports portals, and modern web applications.
           </p>
         </div>
+        </Reveal>
 
         {/* Filter Category Tabs */}
         <div className="relative mb-12 max-w-full overflow-hidden px-1">
@@ -833,6 +836,7 @@ const Projects = ({ onOpenOrderModal }) => {
         </div>
 
         {/* Projects Grid */}
+        <Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedProjects.map((project) => (
             <div
@@ -926,6 +930,7 @@ const Projects = ({ onOpenOrderModal }) => {
             </div>
           ))}
         </div>
+        </Reveal>
 
         {/* Show More / Step-by-Step Pagination Button */}
         {filteredProjects.length > 3 && (

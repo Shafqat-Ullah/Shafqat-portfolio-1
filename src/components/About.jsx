@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { Award, Code2, Rocket, HeartHandshake, CheckCircle, Terminal, Coffee, Sparkles, Briefcase, Calendar, MapPin, Mail, Phone, User } from 'lucide-react';
+import { Award, Code2, Rocket, HeartHandshake, CheckCircle, Terminal, Coffee, Sparkles, Briefcase, Calendar, MapPin, Mail, Phone, User, GraduationCap } from 'lucide-react';
 import { getImagePath } from '../utils/imageUtils';
+import Reveal from './Reveal';
 
 const About = ({ onOpenOrderModal }) => {
   const { isDark } = useTheme();
@@ -30,6 +31,23 @@ const About = ({ onOpenOrderModal }) => {
     }
   ];
 
+  const educationItems = [
+    {
+      degree: 'BSc Computer Science (In Progress)',
+      school: 'University of Peshawar',
+      period: '2022 – Present',
+      description: 'Pursuing a Bachelor of Science in Computer Science, focusing on data structures, algorithms, databases, and core software engineering fundamentals.',
+      tags: ['Data Structures', 'Algorithms', 'DBMS', 'Software Engineering']
+    },
+    {
+      degree: 'Professional Software Development Training',
+      school: 'Saylani Mass IT Training (SMIT) Peshawar',
+      period: '2022 – 2024',
+      description: 'Completed hands-on professional training in modern web technologies including the complete MERN stack, REST APIs, and agile project delivery.',
+      tags: ['MERN Stack', 'REST APIs', 'JavaScript', 'Git']
+    }
+  ];
+
   return (
     <section id="about" className={`py-24 transition-colors duration-300 ${
       isDark ? 'bg-night-bg/60 border-t border-slate-800/80' : 'bg-slate-50 border-t border-slate-200'
@@ -37,6 +55,7 @@ const About = ({ onOpenOrderModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
+        <Reveal>
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
             About <span className="gradient-text">Me</span>
@@ -46,8 +65,10 @@ const About = ({ onOpenOrderModal }) => {
             Dedicated Full Stack Developer passionate about producing clean, high-impact web code that turns site visitors into loyal clients.
           </p>
         </div>
+        </Reveal>
 
         {/* Profile Details Grid */}
+        <Reveal>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
           
           {/* Image Column */}
@@ -123,8 +144,10 @@ const About = ({ onOpenOrderModal }) => {
           </div>
 
         </div>
+        </Reveal>
 
         {/* Experience Timeline Section */}
+        <Reveal>
         <div className="mt-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl font-extrabold">
@@ -191,6 +214,74 @@ const About = ({ onOpenOrderModal }) => {
             </div>
           </div>
         </div>
+        </Reveal>
+
+        {/* Education Timeline Section */}
+        <Reveal>
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl sm:text-3xl font-extrabold">
+              My <span className="gradient-text">Education</span>
+            </h3>
+            <p className={`text-sm mt-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              Academic background & professional training that shaped my engineering mindset.
+            </p>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto">
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent -translate-x-1/2"></div>
+
+            <div className="space-y-8">
+              {educationItems.map((item, index) => (
+                <div
+                  key={index}
+                  className={`flex flex-col md:flex-row items-center justify-between ${
+                    index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
+                >
+                  <div className="w-full md:w-5/12"></div>
+
+                  <div className="hidden md:flex w-10 h-10 rounded-full bg-slate-900 border-2 border-secondary items-center justify-center text-secondary shadow-lg z-10">
+                    <GraduationCap className="w-5 h-5" />
+                  </div>
+
+                  <div className={`w-full md:w-5/12 p-6 rounded-2xl border card-hover ${
+                    isDark
+                      ? 'bg-slate-900/90 border-slate-800 text-slate-200 shadow-xl'
+                      : 'bg-white border-slate-200 text-slate-800 shadow-md'
+                  }`}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-semibold text-xs border border-secondary/20">
+                        {item.period}
+                      </span>
+                      <span className="text-xs font-semibold text-slate-400">{item.school}</span>
+                    </div>
+
+                    <h4 className="text-lg font-bold mb-2">{item.degree}</h4>
+                    <p className={`text-sm mb-4 leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                      {item.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {item.tags.map((tag, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className={`text-xs px-2.5 py-1 rounded-md font-medium ${
+                            isDark ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'
+                          }`}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        </Reveal>
 
       </div>
     </section>

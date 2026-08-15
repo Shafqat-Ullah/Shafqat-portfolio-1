@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://Shafqat-Ullah.github.io/Shafqat-portfolio-1/sitemap.xml

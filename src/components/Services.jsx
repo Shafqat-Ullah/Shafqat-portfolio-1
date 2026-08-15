@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { CheckCircle2, Zap, Rocket, ShoppingBag, Utensils, ShieldCheck, Clock, Sparkles } from 'lucide-react';
+import Reveal from './Reveal';
 
 const Services = ({ onOpenOrderModal }) => {
   const { isDark } = useTheme();
@@ -73,6 +74,7 @@ const Services = ({ onOpenOrderModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Header */}
+        <Reveal>
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 font-extrabold text-xs uppercase tracking-widest border border-emerald-500/20 mb-4">
             <Sparkles className="w-4 h-4" /> Service Tiers & Pricing
@@ -85,8 +87,10 @@ const Services = ({ onOpenOrderModal }) => {
             Choose the perfect package for your project or request a custom quote. Get your website delivered fast with 100% satisfaction guaranteed!
           </p>
         </div>
+        </Reveal>
 
         {/* Pricing Cards Grid */}
+        <Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-16">
           {servicePackages.map((pkg) => {
             const Icon = pkg.icon;
@@ -163,8 +167,10 @@ const Services = ({ onOpenOrderModal }) => {
             );
           })}
         </div>
+        </Reveal>
 
         {/* Guarantee Banner */}
+        <Reveal>
         <div className={`p-6 sm:p-8 rounded-3xl border flex flex-col sm:flex-row items-center justify-between gap-6 ${
           isDark ? 'bg-slate-900/90 border-slate-800' : 'bg-slate-100 border-slate-200'
         }`}>
@@ -187,6 +193,7 @@ const Services = ({ onOpenOrderModal }) => {
             Request Custom Quote
           </button>
         </div>
+        </Reveal>
 
       </div>
     </section>

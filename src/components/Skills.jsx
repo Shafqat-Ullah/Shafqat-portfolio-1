@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Code2, Server, Wrench, Layout, Cpu, CheckCircle } from 'lucide-react';
+import Reveal from './Reveal';
 
 const Skills = () => {
   const { isDark } = useTheme();
@@ -51,6 +52,7 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
+        <Reveal>
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
             My Tech <span className="gradient-text">Skills</span>
@@ -60,8 +62,10 @@ const Skills = () => {
             Mastery of modern web technologies ensuring scalable, bug-free, and maintainable software products.
           </p>
         </div>
+        </Reveal>
 
         {/* Progress Bars Section */}
+        <Reveal>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           
           {/* Technical Skills */}
@@ -137,8 +141,10 @@ const Skills = () => {
           </div>
 
         </div>
+        </Reveal>
 
         {/* Tools & Technologies Grid */}
+        <Reveal>
         <div>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
             <h3 className="text-2xl font-bold text-center sm:text-left">
@@ -181,6 +187,7 @@ const Skills = () => {
             ))}
           </div>
         </div>
+        </Reveal>
 
       </div>
     </section>

@@ -51,7 +51,7 @@ const ChatAssistantSection = ({ onOpenOrderModal }) => {
 
     // 2. Who is Shafqat / Experience / Qualifications
     if (/shafqat|who is shafqat|about developer|experience|qualification|background|smit|peshawar/i.test(q)) {
-      return "Shafqat Ullah is a Senior Full Stack Developer & Lead based in Peshawar, Pakistan with 2+ years of hands-on experience. He specializes in React.js, Node.js, Express, MongoDB, REST APIs, and modern responsive web architectures, having successfully delivered 15+ client platforms.";
+      return "Shafqat Ullah is a Senior Full Stack Developer & Lead based in Peshawar, Pakistan with 2+ years of hands-on experience. He specializes in React.js, Node.js, Express, MongoDB, REST APIs, and modern responsive web architectures, having successfully delivered 66+ client platforms.";
     }
 
     // 3. Services & Tech Stack
@@ -71,7 +71,7 @@ const ChatAssistantSection = ({ onOpenOrderModal }) => {
 
     // 6. Portfolio / Examples / Past Projects
     if (/portfolio|project|projects|sample|example|work|demo|past|restaurant|burger|ufo|ecommerce|e-commerce|chappal|jewellery|mahleej/i.test(q)) {
-      return "Shafqat has built 15+ live web applications! Featured E-Commerce & Web projects include:\n🛍️ Modern E-Commerce Store Platform\n👟 Chappal.pk Footwear E-Commerce Store\n💎 Jewellery & Luxury Goods Store\n👗 MAHLEEJ Fashion & Apparel Boutique\n🛒 Multi-Vendor E-Commerce Web App\n🍔 Fast Food Restaurant Website\nYou can test all live demos in the 'Projects' section above!";
+      return "Shafqat has built 66+ live web applications! Featured E-Commerce & Web projects include:\n🛍️ Modern E-Commerce Store Platform\n👟 Chappal.pk Footwear E-Commerce Store\n💎 Jewellery & Luxury Goods Store\n👗 MAHLEEJ Fashion & Apparel Boutique\n🛒 Multi-Vendor E-Commerce Web App\n🍔 Fast Food Restaurant Website\nYou can test all live demos in the 'Projects' section above!";
     }
 
     // 7. Revisions & Support / Maintenance

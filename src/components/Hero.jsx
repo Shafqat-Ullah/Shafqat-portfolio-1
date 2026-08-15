@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import WhatsAppIcon from './WhatsAppIcon';
 import { getImagePath } from '../utils/imageUtils';
@@ -14,8 +14,54 @@ import {
   Star 
 } from 'lucide-react';
 
+const useCountUp = (target, duration = 1600) => {
+  const [value, setValue] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let rafId = null;
+    let started = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            const startTime = performance.now();
+            const tick = (now) => {
+              const progress = Math.min((now - startTime) / duration, 1);
+              setValue(Math.floor(progress * target));
+              if (progress < 1) {
+                rafId = requestAnimationFrame(tick);
+              }
+            };
+            rafId = requestAnimationFrame(tick);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [target, duration]);
+
+  return [value, ref];
+};
+
 const Hero = ({ onOpenOrderModal }) => {
   const { isDark } = useTheme();
+
+  const [yearsValue, yearsRef] = useCountUp(2);
+  const [projectsValue, projectsRef] = useCountUp(66);
+  const [satisfactionValue, satisfactionRef] = useCountUp(100);
 
   return (
     <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
@@ -208,15 +254,15 @@ const Hero = ({ onOpenOrderModal }) => {
             : 'bg-white/80 border-slate-200 shadow-lg'
         }`}>
           <div className="text-center p-2 sm:p-3">
-            <div className="text-2xl sm:text-4xl font-extrabold gradient-text mb-1">2+</div>
+            <div ref={yearsRef} className="text-2xl sm:text-4xl font-extrabold gradient-text mb-1">{yearsValue}+</div>
             <div className={`text-xs sm:text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Years Experience</div>
           </div>
           <div className="text-center p-2 sm:p-3 border-l border-slate-700/30">
-            <div className="text-2xl sm:text-4xl font-extrabold text-primary mb-1">66+</div>
+            <div ref={projectsRef} className="text-2xl sm:text-4xl font-extrabold text-primary mb-1">{projectsValue}+</div>
             <div className={`text-xs sm:text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Completed Projects</div>
           </div>
           <div className="text-center p-2 sm:p-3 border-l border-slate-700/30">
-            <div className="text-2xl sm:text-4xl font-extrabold text-secondary mb-1">100%</div>
+            <div ref={satisfactionRef} className="text-2xl sm:text-4xl font-extrabold text-secondary mb-1">{satisfactionValue}%</div>
             <div className={`text-xs sm:text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Client Satisfaction</div>
           </div>
           <div className="text-center p-2 sm:p-3 border-l border-slate-700/30">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck, Check, X, CheckCircle2 } from 'lucide-react';
 import { getImagePath } from '../utils/imageUtils';
+import Reveal from './Reveal';
 
 const defaultReviews = [
   {
@@ -146,6 +147,7 @@ const Reviews = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
+        <Reveal>
         <div className="text-center mb-16 relative">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">
             Client <span className="gradient-text">Reviews & Feedback</span>
@@ -167,9 +169,11 @@ const Reviews = () => {
             </button>
           )}
         </div>
+        </Reveal>
 
         {/* Carousel Showcase */}
         {approvedReviews.length > 0 && (
+          <Reveal>
           <div className="relative max-w-4xl mx-auto">
             
             {/* Main Active Review Card */}
@@ -252,6 +256,7 @@ const Reviews = () => {
             </div>
 
           </div>
+          </Reveal>
         )}
 
       </div>

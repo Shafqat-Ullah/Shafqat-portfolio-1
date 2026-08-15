@@ -1,11 +1,54 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { MapPin, Mail, Phone, Copy, Check, MessageSquare, ShoppingBag, Sparkles, CheckCircle2, Clock, ShieldCheck } from 'lucide-react';
+import { MapPin, Mail, Phone, Copy, Check, MessageSquare, ShoppingBag, Sparkles, CheckCircle2, Clock, ShieldCheck, User, Send, ClipboardList } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import Reveal from './Reveal';
 
 const Contact = ({ onOpenOrderModal }) => {
   const { isDark } = useTheme();
   const [copiedType, setCopiedType] = useState(null);
+  const [form, setForm] = useState({ name: '', email: '', service: 'Landing Page / Business Website', message: '' });
+  const [formError, setFormError] = useState('');
+  const [formSent, setFormSent] = useState(false);
+
+  const serviceOptions = [
+    'Landing Page / Business Website',
+    'Full-Stack MERN Application',
+    'Restaurant / E-Commerce System',
+    'Bug Fix & Website Maintenance',
+    'Other / Custom Quote'
+  ];
+
+  const handleFormChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    if (formError) setFormError('');
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    if (!form.name.trim()) {
+      setFormError('Please enter your name.');
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) {
+      setFormError('Please enter a valid email address.');
+      return;
+    }
+    if (!form.message.trim()) {
+      setFormError('Please describe your project briefly.');
+      return;
+    }
+
+    const text = `Hello Shafqat! 👋\n\nNew Project Enquiry:\n\n👤 Name: ${form.name.trim()}\n📧 Email: ${form.email.trim()}\n🛠 Service: ${form.service}\n\n📝 Project Details:\n${form.message.trim()}`;
+
+    window.open(`https://wa.me/923255635495?text=${encodeURIComponent(text)}`, '_blank');
+
+    setForm({ name: '', email: '', service: 'Landing Page / Business Website', message: '' });
+    setFormError('');
+    setFormSent(true);
+    setTimeout(() => setFormSent(false), 4000);
+  };
 
   const handleCopy = (text, type) => {
     navigator.clipboard.writeText(text);
@@ -26,6 +69,7 @@ const Contact = ({ onOpenOrderModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Title */}
+        <Reveal>
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 font-extrabold text-xs uppercase tracking-widest border border-emerald-500/20 mb-4">
             <ShoppingBag className="w-4 h-4" /> Place Order & Get In Touch
@@ -38,7 +82,9 @@ const Contact = ({ onOpenOrderModal }) => {
             Ready to build your web application? Launch our instant Order Wizard or connect directly on WhatsApp & Email.
           </p>
         </div>
+        </Reveal>
 
+        <Reveal>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Info Cards Column */}
@@ -180,6 +226,136 @@ const Contact = ({ onOpenOrderModal }) => {
           </div>
 
         </div>
+        </Reveal>
+
+        {/* Quick Enquiry Form */}
+        <Reveal>
+        <div className={`mt-12 p-8 sm:p-10 rounded-3xl border shadow-2xl relative overflow-hidden ${
+          isDark ? 'bg-slate-900/90 border-slate-800' : 'bg-white border-slate-200'
+        }`}>
+          <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-tr from-secondary/30 to-transparent rounded-br-full pointer-events-none"></div>
+
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-3 rounded-2xl bg-gradient-to-r from-secondary to-primary text-white shadow-lg">
+              <ClipboardList className="w-7 h-7" />
+            </div>
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold gradient-text">Quick Project Enquiry</h3>
+              <p className="text-xs text-emerald-400 font-bold flex items-center gap-1">
+                <Send className="w-3.5 h-3.5" /> Submits directly to WhatsApp — no waiting!
+              </p>
+            </div>
+          </div>
+
+          <form onSubmit={handleFormSubmit} className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* Name */}
+            <div>
+              <label className={`text-xs font-bold uppercase tracking-wider mb-1.5 block ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                Your Name
+              </label>
+              <div className="relative">
+                <User className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleFormChange}
+                  placeholder="e.g. Ahmed Ali"
+                  className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary transition ${
+                    isDark ? 'bg-slate-800 border-slate-700 text-white placeholder-slate-500' : 'bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400'
+                  }`}
+                />
+              </div>
+            </div>
+
+            {/* Email */}
+            <div>
+              <label className={`text-xs font-bold uppercase tracking-wider mb-1.5 block ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                Your Email
+              </label>
+              <div className="relative">
+                <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleFormChange}
+                  placeholder="e.g. ahmed@example.com"
+                  className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary transition ${
+                    isDark ? 'bg-slate-800 border-slate-700 text-white placeholder-slate-500' : 'bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400'
+                  }`}
+                />
+              </div>
+            </div>
+
+            {/* Service */}
+            <div className="md:col-span-2">
+              <label className={`text-xs font-bold uppercase tracking-wider mb-1.5 block ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                Service Needed
+              </label>
+              <select
+                name="service"
+                value={form.service}
+                onChange={handleFormChange}
+                className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary transition ${
+                  isDark ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-300 text-slate-900'
+                }`}
+              >
+                {serviceOptions.map((opt) => (
+                  <option key={opt} value={opt}>{opt}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Message */}
+            <div className="md:col-span-2">
+              <label className={`text-xs font-bold uppercase tracking-wider mb-1.5 block ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                Project Details
+              </label>
+              <div className="relative">
+                <MessageSquare className="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400" />
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleFormChange}
+                  rows="4"
+                  placeholder="Briefly describe your project, goals, and preferred deadline..."
+                  className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary transition resize-none ${
+                    isDark ? 'bg-slate-800 border-slate-700 text-white placeholder-slate-500' : 'bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400'
+                  }`}
+                ></textarea>
+              </div>
+            </div>
+
+            {/* Error / Success */}
+            {formError && (
+              <p className="md:col-span-2 text-sm font-bold text-rose-400 bg-rose-500/10 border border-rose-500/30 rounded-xl px-4 py-2.5">
+                {formError}
+              </p>
+            )}
+            {formSent && (
+              <p className="md:col-span-2 text-sm font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-4 py-2.5 flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 shrink-0" />
+                Enquiry ready in WhatsApp! Send it and Shafqat will get back to you shortly.
+              </p>
+            )}
+
+            {/* Submit */}
+            <div className="md:col-span-2">
+              <button
+                type="submit"
+                className="w-full py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-base shadow-xl shadow-emerald-500/25 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2.5 group"
+              >
+                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span>Send Enquiry via WhatsApp</span>
+              </button>
+              <p className={`text-center text-xs mt-3 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
+                Your details go directly to Shafqat's WhatsApp — no forms database, maximum privacy.
+              </p>
+            </div>
+          </form>
+        </div>
+        </Reveal>
 
       </div>
     </section>

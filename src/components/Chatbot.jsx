@@ -56,7 +56,7 @@ const Chatbot = ({ onOpenOrderModal }) => {
 
     // 2. Who is Shafqat / Experience / Qualifications
     if (/shafqat|who is shafqat|about developer|experience|qualification|background|smit|peshawar/i.test(q)) {
-      return "Shafqat Ullah is a Senior Full Stack Developer & Lead based in Peshawar, Pakistan with 2+ years of hands-on experience. He specializes in React.js, Node.js, Express, MongoDB, REST APIs, and modern responsive web architectures, having successfully delivered 34+ live client platforms.";
+      return "Shafqat Ullah is a Senior Full Stack Developer & Lead based in Peshawar, Pakistan with 2+ years of hands-on experience. He specializes in React.js, Node.js, Express, MongoDB, REST APIs, and modern responsive web architectures, having successfully delivered 66+ live client platforms.";
     }
 
     // 3. Services & Tech Stack
@@ -76,7 +76,7 @@ const Chatbot = ({ onOpenOrderModal }) => {
 
     // 6. Portfolio / Examples / Past Projects
     if (/portfolio|project|projects|sample|example|work|demo|past|restaurant|burger|ufo|ecommerce/i.test(q)) {
-      return "Shafqat has built 34+ live web applications! Featured projects include:\n🛍️ 12 E-Commerce Shopping Stores\n🍔 13 Restaurant & Food Websites\n🏋️ FlexGym Fitness Club Platform\n🛸 UFO Burger Official Website\n🌐 Digital Dream Web Corporate Portal\nYou can test all live demos in the 'Projects' section!";
+      return "Shafqat has built 66+ live web applications! Featured projects include:\n🛍️ 12 E-Commerce Shopping Stores\n🍔 13 Restaurant & Food Websites\n🏋️ FlexGym Fitness Club Platform\n🛸 UFO Burger Official Website\n🌐 Digital Dream Web Corporate Portal\nYou can test all live demos in the 'Projects' section!";
     }
 
     // 7. Revisions & Support / Maintenance
