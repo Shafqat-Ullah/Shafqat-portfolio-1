@@ -183,7 +183,7 @@ const Navbar = ({ onOpenOrderModal }) => {
           isDark ? 'bg-slate-900/95 border-slate-800 text-slate-200' : 'bg-white/95 border-slate-200 text-slate-800'
         }`}>
           <div className="flex flex-col space-y-2">
-            {navLinks.map((link) => (
+            {navLinks.filter((link) => link.id !== 'assistant').map((link) => (
               <a
                 key={link.id}
                 href={link.href}
