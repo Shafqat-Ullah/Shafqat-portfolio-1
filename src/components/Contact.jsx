@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { MapPin, Mail, Phone, Copy, Check, MessageSquare, ShoppingBag, Sparkles, CheckCircle2, Clock, ShieldCheck, User, Send, ClipboardList } from 'lucide-react';
+import { MapPin, Mail, Phone, Copy, Check, MessageSquare, ShoppingBag, Sparkles, CheckCircle2, Clock, ShieldCheck, User, ClipboardList } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import Reveal from './Reveal';
 
@@ -242,7 +242,7 @@ const Contact = ({ onOpenOrderModal }) => {
             <div className="flex flex-col items-center sm:items-start">
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold gradient-text">Quick Project Enquiry</h3>
               <p className="text-xs text-emerald-400 font-bold flex items-center gap-1 mt-0.5">
-                <Send className="w-3.5 h-3.5 shrink-0" /> Submits directly to WhatsApp — no waiting!
+                <WhatsAppIcon className="w-3.5 h-3.5 shrink-0" /> Submits directly to WhatsApp — no waiting!
               </p>
             </div>
           </div>
