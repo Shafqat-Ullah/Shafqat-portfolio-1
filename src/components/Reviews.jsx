@@ -7,7 +7,7 @@ const defaultReviews = [
     id: 1,
     name: 'Simone',
     role: 'Restaurant Owner (Italy)',
-    image: '/Images/client1.png',
+    image: './Images/client1.png',
     rating: 5,
     comment: 'Shafqat delivered an outstanding website for my restaurant. The design is modern, the menu functionality is flawless, and he was professional throughout the entire process. Highly recommended!',
     status: 'approved'
@@ -16,7 +16,7 @@ const defaultReviews = [
     id: 2,
     name: 'Nayan Petrime',
     role: 'Restaurant Business Owner',
-    image: '/Images/client2.png',
+    image: './Images/client2.png',
     rating: 5,
     comment: 'Working with Shafqat was a pleasure. He understood my vision perfectly and delivered a website that exceeded my expectations. His attention to detail and communication skills are exceptional.',
     status: 'approved'
@@ -25,7 +25,7 @@ const defaultReviews = [
     id: 3,
     name: 'Michael Brown',
     role: 'Tech Startup Founder (USA)',
-    image: '/Images/Client 3.jpg',
+    image: './Images/Client 3.jpg',
     rating: 5,
     comment: 'Shafqat transformed our online presence with a stunning website. He was responsive, professional, and delivered on time. The site has significantly increased our customer engagement and conversions.',
     status: 'approved'
@@ -34,7 +34,7 @@ const defaultReviews = [
     id: 4,
     name: 'Emily Davis',
     role: 'Marketing Director',
-    image: '/Images/client 4.jpg',
+    image: './Images/client 4.jpg',
     rating: 5,
     comment: 'Exceptional work! Shafqat created a beautiful, functional website that perfectly represents our brand. His technical expertise and creative approach made the entire process smooth and enjoyable.',
     status: 'approved'

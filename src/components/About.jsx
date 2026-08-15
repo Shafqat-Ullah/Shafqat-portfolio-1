@@ -54,7 +54,7 @@ const About = ({ onOpenOrderModal }) => {
             <div className="relative w-full max-w-md aspect-square">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary to-secondary blur-2xl opacity-30"></div>
               <img
-                src="/Images/shafqat-developer-desk.jpg"
+                src="./Images/shafqat-developer-desk.jpg"
                 alt="Shafqat Ullah - Senior Full Stack MERN Developer"
                 className="relative w-full h-full object-cover rounded-3xl border-4 border-slate-800/80 shadow-2xl card-hover"
               />

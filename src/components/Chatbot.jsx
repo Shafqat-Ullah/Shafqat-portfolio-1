@@ -157,7 +157,7 @@ const Chatbot = ({ onOpenOrderModal }) => {
             {/* Glowing High-Res 3D AI Robot Avatar Logo */}
             <div className="relative z-10 flex items-center justify-center">
               <img
-                src="/Images/chatbot-avatar.png"
+                src="./Images/chatbot-avatar.png"
                 alt="Shafqat AI Robot Assistant"
                 className="w-11 h-11 sm:w-13 sm:h-13 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-xl"
               />
@@ -177,7 +177,7 @@ const Chatbot = ({ onOpenOrderModal }) => {
           <div className="px-4 sm:px-5 py-3.5 sm:py-4 bg-gradient-to-r from-primary via-secondary to-accent text-white flex items-center justify-between shadow-md shrink-0">
             <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
               <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-bold border border-white/30 shrink-0 p-1">
-                <img src="/Images/chatbot-avatar.png" alt="AI Robot Logo" className="w-full h-full object-contain" />
+                <img src="./Images/chatbot-avatar.png" alt="AI Robot Logo" className="w-full h-full object-contain" />
                 <Sparkles className="w-3 h-3 text-amber-300 absolute -top-0.5 -right-0.5" />
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-400 border-2 border-slate-900"></span>
               </div>
@@ -230,7 +230,7 @@ const Chatbot = ({ onOpenOrderModal }) => {
                   >
                     {msg.sender === 'bot' && (
                       <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-1 p-1">
-                        <img src="/Images/chatbot-avatar.png" alt="AI Bot Avatar" className="w-full h-full object-contain" />
+                        <img src="./Images/chatbot-avatar.png" alt="AI Bot Avatar" className="w-full h-full object-contain" />
                       </div>
                     )}
 

@@ -158,7 +158,7 @@ const Hero = ({ onOpenOrderModal }) => {
               {/* Inner Avatar Image */}
               <div className="relative w-full h-full rounded-full p-2 overflow-hidden bg-night-bg/50 backdrop-blur-md">
                 <img
-                  src="/Images/Shafqat Ullah.png"
+                  src="./Images/Shafqat Ullah.png"
                   alt="Shafqat Ullah - Senior Full Stack MERN Developer"
                   className="w-full h-full object-cover rounded-full shadow-2xl floating transition-transform hover:scale-105 duration-500"
                 />
