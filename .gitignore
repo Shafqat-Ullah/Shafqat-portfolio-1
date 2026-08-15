@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+dist-netlify
 dist-isolation
 build
 .DS_Store
