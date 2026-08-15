@@ -191,15 +191,6 @@ const Chatbot = ({ onOpenOrderModal }) => {
             </div>
 
             <div className="flex items-center gap-1.5 text-white shrink-0">
-              <a
-                href="https://wa.me/923255635495"
-                target="_blank"
-                rel="noreferrer"
-                className="p-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 transition flex items-center justify-center shadow"
-                title="Open WhatsApp Chat directly"
-              >
-                <WhatsAppIcon className="w-4 h-4 text-slate-950" />
-              </a>
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
                 className="p-1.5 rounded-lg hover:bg-white/20 transition"
